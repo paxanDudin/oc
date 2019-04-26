@@ -7,14 +7,14 @@
 #include <signal.h>
 #include <unistd.h> 
 int i = 0; 
-//void* thread_func(void *arg) {
+void* thread_func(void *arg) {
 	pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, NULL);
-//	for (i=0; i < 4; i++)
+	for (i=0; i < 4; i++)
 		printf("I'm still running!\n");
-//		sleep(1);
-//	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
-//	pthread_testcancel();
-//	printf("YOU WILL NOT STOP ME!!!\n"); 
+		sleep(1);
+	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
+	pthread_testcancel();
+	printf("YOU WILL NOT STOP ME!!!\n"); 
 } 
 int main(int argc, char * argv[]) {
 	pthread_t thread;
@@ -26,3 +26,4 @@ int main(int argc, char * argv[]) {
 		printf("The thread is stopped.\n"); 
 	return  EXIT_SUCCESS; 
 } 
+//Конец
